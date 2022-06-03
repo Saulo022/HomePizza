@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Home Pizza</string>
+
+    <string name="title_activity_amount">Pizza Amount</string>
+    <string name="title_activity_store">Pizza Store</string>
+    <string name="title_activity_cart">Pizza Cart</string>
+
+    <string name="cart_item_name">Cart Item Name</string>
+    <string name="cart_item_price">Cart Item Price</string>
+    <string name="cart_item_amount">Cart Item Amount</string>
+
+    <string name="store_item_name">Store Item Name</string>
+    <string name="store_item_price">Store Item Price</string>
+
+    <string name="cart_subtotal">Cart Subtotal</string>
+    <string name="cart_total">Cart Total</string>
+
+</resources>
