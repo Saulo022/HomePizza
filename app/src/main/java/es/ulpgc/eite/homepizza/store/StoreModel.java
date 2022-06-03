@@ -27,6 +27,7 @@ public class StoreModel implements StoreContract.Model {
     this.data.add(new StoreItem("Buffalo", 15));
     this.data.add(new StoreItem("Supreme", 16));
 
+
   }
 
   @Override

@@ -1,6 +1,7 @@
 package es.ulpgc.eite.homepizza.store;
 
 import android.os.Bundle;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -89,7 +90,9 @@ public class StoreActivity
     //Log.e(TAG, "onViewModelDataUpdated()");
 
     // deal with the data
+
     adapter.setItems(viewModel.items);
+    adapter.getItem(0);
   }
 
 

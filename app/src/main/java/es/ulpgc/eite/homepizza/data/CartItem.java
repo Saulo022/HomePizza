@@ -1,5 +1,7 @@
 package es.ulpgc.eite.homepizza.data;
 
+import androidx.annotation.NonNull;
+
 /**
  * Created by Luis on mayo, 2022
  */
@@ -14,5 +16,9 @@ public class CartItem {
     price=item.price;
     amount=1;
   }
-
+  @NonNull
+  @Override
+  public String toString() {
+    return "Pizza" + name + "Price" + price + "Amount" + amount;
+  }
 }
