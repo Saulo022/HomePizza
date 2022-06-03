@@ -5,6 +5,8 @@ import android.util.Log;
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.homepizza.app.AppMediator;
+import es.ulpgc.eite.homepizza.app.StoreToCartState;
+import es.ulpgc.eite.homepizza.data.CartItem;
 
 /**
  * Created by Luis on mayo, 2022
@@ -20,6 +22,7 @@ public class CartPresenter implements CartContract.Presenter {
 
   public CartPresenter(AppMediator mediator) {
     this.mediator = mediator;
+    state = mediator.getCartScreenState();
   }
 
   @Override
@@ -41,7 +44,12 @@ public class CartPresenter implements CartContract.Presenter {
     Log.e(TAG, "onResume()");
 
     // TODO: include some code if is necessary
-
+    StoreToCartState newState = mediator.getStoreToCartScreenState();
+    if (newState != null){
+      CartItem cartItem = new CartItem(newState.item);
+      state.items.add(cartItem);
+    }
+      view.get().onViewModelDataUpdated(state);
   }
 
   @Override
