@@ -3,6 +3,7 @@ package es.ulpgc.eite.homepizza.store;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
+import es.ulpgc.eite.homepizza.data.CartItem;
 import es.ulpgc.eite.homepizza.data.StoreItem;
 
 /**
@@ -31,6 +32,7 @@ public interface StoreContract {
   interface Model {
     List<StoreItem> getStoredData();
     List<StoreItem> getUpdatedDataDuringPause();
+
   }
 
 }

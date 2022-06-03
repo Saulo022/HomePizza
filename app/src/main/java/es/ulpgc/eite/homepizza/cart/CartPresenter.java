@@ -4,7 +4,9 @@ import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.homepizza.app.AmountToCartState;
 import es.ulpgc.eite.homepizza.app.AppMediator;
+import es.ulpgc.eite.homepizza.app.CartToAmountState;
 import es.ulpgc.eite.homepizza.app.StoreToCartState;
 import es.ulpgc.eite.homepizza.data.CartItem;
 
@@ -49,6 +51,15 @@ public class CartPresenter implements CartContract.Presenter {
       CartItem cartItem = new CartItem(newState.item);
       state.items.add(cartItem);
     }
+
+    AmountToCartState newState2 = mediator.getAmountToCartScreenState();
+    if(newState2 != null){
+      for (int i=0; i<state.items.size(); i++){
+          if(state.items.get(i).price == newState2.item.price){
+            state.items.get(i).amount = newState2.item.amount;
+          }
+      }
+    }
       view.get().onViewModelDataUpdated(state);
   }
 
@@ -86,8 +97,17 @@ public class CartPresenter implements CartContract.Presenter {
     Log.e(TAG, "onItemClicked()");
 
     // TODO: include some code if is necessary
+    CartToAmountState cartToAmountState = new CartToAmountState();
+    cartToAmountState.item = state.items.get(position);
+    cartToAmountState.subtotal = model.subTotal(state.items.get(position));
+    cartToAmountState.total = model.cuentaTotal(state.items);
+    passStateToNextScreen(cartToAmountState);
+    view.get().navigateToAmountScreen();
   }
 
+  private void passStateToNextScreen(CartToAmountState state) {
+    mediator.setCartToAmountScreenState(state);
+  }
 
   @Override
   public void injectView(WeakReference<CartContract.View> view) {

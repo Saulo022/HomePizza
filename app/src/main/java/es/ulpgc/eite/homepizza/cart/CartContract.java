@@ -32,6 +32,8 @@ public interface CartContract {
 
   interface Model {
     List<CartItem> getStoredData();
+    int subTotal(CartItem cartItem);
+    int cuentaTotal(List<CartItem> lista);
   }
 
 }
