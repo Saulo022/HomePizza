@@ -36,9 +36,9 @@ public class CartModel implements CartContract.Model {
 
   @Override
   public int cuentaTotal(List<CartItem> lista){
-
+    cuentaTotal =0;
     for (int i=0; i<lista.size(); i++){
-      cuentaTotal = cuentaTotal + (lista.get(i).price * lista.get(i).amount);
+      cuentaTotal = cuentaTotal + (lista.get(i).price*lista.get(i).amount);
     }
     return cuentaTotal;
   }
